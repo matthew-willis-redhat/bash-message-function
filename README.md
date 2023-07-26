@@ -1,0 +1,1 @@
+# bash-message-function
