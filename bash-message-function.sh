@@ -1,16 +1,19 @@
 #!/bin/bash
 
-# Define terminal colors
-INFO=`tput setaf 33`
-SUCCESS=`tput setaf 2`
-WARNING=`tput setaf 3`
-ERROR=`tput setaf 1`
-RESET=`tput sgr0`
-
+# Input parameters
 INPUT_STATUS="$1"
 INPUT_MESSAGE="$2"
 
+# Message function
 function MESSAGE {
+
+  # Define terminal colors
+  INFO=`tput setaf 33`
+  SUCCESS=`tput setaf 2`
+  WARNING=`tput setaf 3`
+  ERROR=`tput setaf 1`
+  RESET=`tput sgr0`
+
   # Message error function; prefix message with ERROR
   function MESSAGE_ERROR {
     echo -e "${ERROR}ERROR${RESET}   $1"
@@ -43,6 +46,7 @@ function MESSAGE {
   fi
 }
 
+# Check if the input status is defined before outputting messages
 if [ ! -z "$INPUT_STATUS" ]; then
   MESSAGE "$INPUT_STATUS" "$INPUT_MESSAGE"
 fi
